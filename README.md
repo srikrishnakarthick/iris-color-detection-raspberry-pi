@@ -2,6 +2,30 @@
 
 A Raspberry Pi-based system that captures images via a physical button, transfers them over LAN, and analyzes iris color using computer vision and K-means clustering in HSV space. This Project was demonstrated on National Science Day 2026, at IISER Tirupati, on behalf of the Muscle Physiology Lab.
 
+<p align="center">
+  <img src="Slides/slide0.png" width="500">
+</p>
+
+<p align="center">
+  <em>Introduction</em>
+</p>
+
+<p align="center">
+  <img src="Slides/slide1.png" width="500">
+</p>
+
+<p align="center">
+  <em>How relative pigment-abundance determines iris color</em>
+</p>
+
+<p align="center">
+  <img src="Slides/slide2.png" width="500">
+</p>
+
+<p align="center">
+  <em>The Underlying Genetics</em>
+</p>
+
 ---
 
 ## Aim
