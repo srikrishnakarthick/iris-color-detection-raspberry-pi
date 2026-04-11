@@ -101,16 +101,16 @@ iris-color-detection-raspberry-pi/
 │   └── setup_lan.sh
 │
 ├── results/
-│   ├── captured_image.jpg
-│   ├── iris_detection.png
-│   ├── clustering.png
-│   ├── histograms.png
-│   ├── summary.png
-│   └── terminal_output.png
+│   ├── 0.2026-03-4_15-44-11.jpg
+│   ├── 1.Iris_detection.png
+│   ├── 2.Clustering.png
+│   ├── 3.Histograms.png
+│   ├── 4.Summary.png
+│   └── 5.Terminal_output.png
 │
 ├── README.md
 ├── requirements.txt
-└── .gitignore
+
 
 ````
 
@@ -158,7 +158,7 @@ python src/iris_analysis.py
 
 ### Iris Detection
 
-![Iris Detection](results/1.Rris_detection.png)
+![Iris Detection](results/1.Iris_detection.png)
 
 ### K-means Clustering
 
