@@ -1,59 +1,89 @@
-```markdown
 # Iris Color Detection using Raspberry Pi
 
-A Raspberry Pi-based system that captures images on button press, transfers them over LAN, and analyzes iris color using computer vision techniques.
+A Raspberry Pi-based system that captures images via a physical button, transfers them over LAN, and analyzes iris color using computer vision and K-means clustering in HSV space. This Project was demonstrated on National Science Day 2026, at IISER Tirupati, on behalf of the Muscle Physiology Lab.
+
+---
+
+## Aim
+
+To measure a person’s iris color by extracting iris pixels and determining the **dominant K-means cluster in HSV color space**.
 
 ---
 
 ## Overview
 
-This project uses a Raspberry Pi 3B+ with a camera module to detect and analyze the iris color of visitors.
+This project integrates:
 
-The system integrates:
-- Hardware (Raspberry Pi + button + camera)
-- Networking (LAN file transfer to laptop)
-- Computer Vision (OpenCV-based analysis)
+- Embedded hardware (Raspberry Pi + Camera + Button)
+- Networking (LAN-based file transfer to laptop)
+- Computer Vision (OpenCV + Daugman-inspired iris detection)
+- Data Analysis (RGB/HSV histograms, clustering, statistics)
 
----
-
-## System Workflow
-
-Button → Raspberry Pi → Image Capture → LAN Transfer → Laptop → OpenCV Analysis → Results
-
-1. Button press triggers image capture (`button.py`)
-2. Image is saved with timestamp on Raspberry Pi
-3. Image is transferred to laptop via LAN (shared folder)
-4. Image is processed (`iris_analysis.py`) to:
-   - Detect face and eyes
-   - Segment iris region (Daugman-inspired approach)
-   - Extract pixel data from iris
-   - Analyze color in RGB and HSV space
-   - Apply K-means clustering to find dominant iris color
+The system is designed for **real-time demonstration environments** (e.g., exhibitions), avoiding repeated SD card transfers.
 
 ---
 
-## Key Features
+## ⚙️ System Workflow
 
-- Button-triggered image capture
-- Automatic timestamp-based image storage
-- LAN-based file transfer from Raspberry Pi to laptop
-- Face, eye, and iris detection using OpenCV
-- RGB & HSV histogram analysis
-- 3D color space visualization
-- Dominant iris color detection using K-means clustering
+Button → Raspberry Pi → Image Capture → LAN Transfer → Laptop → OpenCV Analysis → Iris Color Output
+
+1. Button press triggers image capture on Raspberry Pi  
+2. Image is saved with timestamp  
+3. Image is transferred to laptop via shared folder (LAN)  
+4. Latest image is selected for processing  
+5. Pipeline performs:
+   - Face detection
+   - Eye detection
+   - Iris localization (Daugman-inspired)
+   - Iris pixel extraction
+   - RGB & HSV analysis
+   - K-means clustering (dominant color)
 
 ---
 
-## Technologies Used
+## Apparatus
 
-- Python
-- OpenCV
-- NumPy
-- Matplotlib
-- Scikit-learn
 - Raspberry Pi 3B+
-- Camera Module
-- GPIO (gpiozero)
+- Raspberry Pi Camera Module 3
+- Push button + jumper wires
+- Breadboard
+- LAN cable (Pi ↔ Laptop)
+- Power supply (5V, 2.5A)
+- Monitor, keyboard, mouse (for setup)
+- Windows PC (for processing)
+
+---
+
+## Methodology
+
+### 1. Image Acquisition
+- Triggered via GPIO button
+- Captured using `libcamera-still`
+- Saved with timestamp
+
+### 2. Iris Detection
+- Face detection (Haar cascades)
+- Eye detection
+- Iris localization using **Daugman-inspired circular gradient search**
+
+### 3. Pixel Extraction
+- Extract pixels inside iris circle
+- Remove sclera using brightness + saturation filtering
+
+### 4. Color Analysis
+- RGB histograms
+- HSV histograms (more robust to lighting)
+
+### 5. Clustering
+- K-means clustering applied to:
+  - RGB space
+  - HSV space
+- Largest cluster = **dominant iris color**
+
+### 6. Classification
+- HSV thresholds used to classify:
+  - Brown / Dark Brown / Light Brown
+  - Blue / Green / Amber / Grey
 
 ---
 
@@ -71,61 +101,51 @@ iris-color-detection-raspberry-pi/
 │   └── setup_lan.sh
 │
 ├── results/
-│   ├── 0.2026-03-4_15-44-11.jpg
-│   ├── 1.Iris_detection.png
-│   ├── 2.Clustering.png
-│   ├── 3.Histograms.png
-│   ├── 4.Summary.png
-│   └── 5.Terminal_output.png
+│   ├── captured_image.jpg
+│   ├── iris_detection.png
+│   ├── clustering.png
+│   ├── histograms.png
+│   ├── summary.png
+│   └── terminal_output.png
 │
 ├── README.md
 ├── requirements.txt
+└── .gitignore
 
 ````
 
 ---
 
-## How to Run
+## Setup & Execution
 
 ### 1. Install Python dependencies
-
 ```bash
 pip install -r requirements.txt
 ````
 
----
+### 2. Install system dependencies (Raspberry Pi)
 
-### 2. Setup LAN connection (Raspberry Pi)
+```bash
+sudo apt update
+sudo apt install -y cifs-utils network-manager python3-tk
+```
+
+### 3. Setup LAN transfer
 
 ```bash
 bash scripts/setup_lan.sh
 ```
 
----
-
-### 3. Run image capture (on Raspberry Pi)
+### 4. Run image capture (on Raspberry Pi)
 
 ```bash
 python src/button.py
 ```
-Click Ctr + C once the image is clicked
----
 
-### 4. Run analysis (on laptop)
+### 5. Run analysis (on laptop)
 
 ```bash
 python src/iris_analysis.py
-```
-
----
-
-## 🔧 System Dependencies (Raspberry Pi)
-
-Install required system packages:
-
-```bash
-sudo apt update
-sudo apt install -y cifs-utils network-manager
 ```
 
 ---
@@ -134,48 +154,38 @@ sudo apt install -y cifs-utils network-manager
 
 ### 📷 Captured Image
 
-![Captured](results/0.2026-03-4_15-44-11.jpg)
+![Captured](results/0.2026-03-4_15-44-11)
 
 ### Iris Detection
 
-![Iris Detection](results/1.Iris_detection.png)
+![Iris Detection](results/1.Rris_detection.png)
 
-### 🎯 Dominant Color (K-means Clustering)
+### K-means Clustering
 
 ![Clustering](results/2.Clustering.png)
 
-### 📈 RGB & HSV Histograms
+### Histograms (RGB & HSV)
 
 ![Histograms](results/3.Histograms.png)
 
-### 🧾 Final Summary Output
+### Final Output
 
 ![Summary](results/4.Summary.png)
 
-### Terminal Output
+---
 
-![Terminal](results/5.Terminal_output.png)
+## Observations
+
+* HSV color space provides **better robustness to lighting variations** than RGB
+* K-means clustering effectively identifies dominant iris color (mean RGB value needn't reflect dominant eye color)
+* Removing sclera and glare significantly improves clustering accuracy
 
 ---
 
-## Methodology
-
-* Face and eye detection using Haar cascades (OpenCV)
-* Iris localization using circular approximation (Daugman-inspired)
-* Pixel extraction from iris region
-* Color analysis in:
-
-  * RGB space
-  * HSV space
-* K-means clustering to determine dominant iris color
-
----
 ## 📎 Notes
 
-* Ensure Windows shared folder is mounted before running capture
-* Update IP addresses and credentials in `setup_lan.sh`
-* `gpiozero` is required only when running on Raspberry Pi
-
+* Ensure shared Windows folder is mounted before capture
+* Replace IP addresses and credentials in setup script
 ---
 
 ## 📜 License
@@ -184,4 +194,3 @@ This project is for educational and experimental purposes.
 
 ```
 ```
-
