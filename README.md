@@ -154,7 +154,7 @@ python src/iris_analysis.py
 
 ### 📷 Captured Image
 
-![Captured](results/0.2026-03-4_15-44-11)
+![Captured](results/0.2026-03-4_15-44-11.jpg)
 
 ### Iris Detection
 
