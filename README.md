@@ -1,5 +1,9 @@
 # Iris Color Detection using Raspberry Pi
 
+<p align="center">
+  <img src="Slides/IMG_0144.JPG.jpeg" width="500">
+</p>
+
 A Raspberry Pi-based system that captures images via a physical button, transfers them over LAN, and analyzes iris color using computer vision and K-means clustering in HSV space. This Project was demonstrated on National Science Day 2026, at IISER Tirupati, on behalf of the Muscle Physiology Lab.
 
 <p align="center">
