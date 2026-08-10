@@ -127,27 +127,6 @@ Button → Raspberry Pi → Image Capture → LAN Transfer → Laptop → OpenCV
 
 ---
 
-## 📂 Project Structure
-iris-color-detection-raspberry-pi/
-│
-├── src/
-│ ├── button.py
-│ ├── iris_analysis.py
-│
-├── scripts/
-│ └── setup_lan.sh
-│
-├── results/
-│ ├── 0.2026-03-4_15-44-11.jpg
-│ ├── 1.Iris_detection.png
-│ ├── 2.Clustering.png
-│ ├── 3.Histograms.png
-│ ├── 4.Summary.png
-│ └── 5.Terminal_output.png
-│
-├── README.md
-├── requirements.txt
-
 ---
 
 ## Setup & Execution
