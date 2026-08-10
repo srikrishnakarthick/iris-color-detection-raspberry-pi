@@ -5,7 +5,9 @@
 </p>
 
 > **Featured in [Raspberry Pi Official Magazine #168 (August 2026)](https://rpimag.co/icdetect)** — Project Showcase section, pp. 16–19.
-
+> 
+> **Also featured at [Instructables](https://www.instructables.com/Iris-Color-Detector-RPi/)**
+> 
 A Raspberry Pi-based system that captures images via a physical button, transfers them over LAN, and analyzes iris color using computer vision and K-means clustering in HSV space. This project was demonstrated on National Science Day 2026, at IISER Tirupati, on behalf of the Muscle Physiology Lab. It served ~350 visitors without a hitch.
 
 <p align="center">
