@@ -7,7 +7,11 @@
 > **Featured in [Raspberry Pi Official Magazine #168 (August 2026)](https://rpimag.co/icdetect)** — Project Showcase section, pp. 16–19.
 > 
 > **Also featured at [Instructables](https://www.instructables.com/Iris-Color-Detector-RPi/)**
-> 
+>
+> ## Talks & Outreach
+
+- **Invited Talk, IIT Tirupati** (11th April 2026) — *"Using Physics, Electronics, and ML to detect Eye Color"*, hosted by the Techmaniacs Club. Covered the hardware, computer vision pipeline, and potential ophthalmological applications.
+- 
 A Raspberry Pi-based system that captures images via a physical button, transfers them over LAN, and analyzes iris color using computer vision and K-means clustering in HSV space. This project was demonstrated on National Science Day 2026, at IISER Tirupati, on behalf of the Muscle Physiology Lab. It served ~350 visitors without a hitch.
 
 <p align="center">
@@ -200,7 +204,7 @@ python src/iris_analysis.py
 
 ## Acknowledgements
 
-Thanks to **Dr Prasanna Katti** (Principal Investigator, Muscle Physiology Lab) and the **Science Day Committee at IISER Tirupati** for supporting and funding this project.
+Thanks to **Dr Prasanna Katti** (Principal Investigator, Muscle Physiology Lab) and the **Science Day Committee at IISER Tirupati** for supporting and funding this project. Special thanks to my friend and classmate Pratik Panda for setting up the OS and getting the RPi ready and to Meet Rana, Aditya and their Techmaniacs Club at IIT Tirupati for the warm invitation.
 
 ---
 
