@@ -8,7 +8,8 @@
 > 
 > **Also featured at [Instructables](https://www.instructables.com/Iris-Color-Detector-RPi/)**
 >
-> ## Talks & Outreach
+
+## Talks & Outreach
 
 - **Invited Talk, IIT Tirupati** (11th April 2026) — *"Using Physics, Electronics, and ML to detect Eye Color"*, hosted by the Techmaniacs Club. Covered the hardware, computer vision pipeline, and potential ophthalmological applications.
  
