@@ -6,7 +6,7 @@
 
 > **Featured in [Raspberry Pi Official Magazine #168 (August 2026)](https://rpimag.co/icdetect)** — Project Showcase section, pp. 16–19.
 > 
-> **Also featured at [Instructables](https://www.instructables.com/Iris-Color-Detector-RPi/)**
+> **Also featured at [Instructables](https://www.instructables.com/Iris-Color-Detector-RPi/) and [r/raspberry_pi](https://www.reddit.com/r/raspberry_pi/comments/1vkp4ki/iris_colour_detector_with_a_raspberry_pi_got/)** 
 >
 
 ## Talks & Outreach
